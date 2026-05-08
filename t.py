@@ -189,10 +189,10 @@ hr { border-color: #1e1e1e !important; margin: 2rem 0 !important; }
 
 # ── Constants (UNCHANGED) ─────────────────────────────────────────────────────
 import os
+import streamlit as st
 from dotenv import load_dotenv
 load_dotenv()
-API_KEY = os.getenv("API_KEY")
-
+API_KEY = os.getenv("API_KEY") or st.secrets.get("API_KEY")
 client = OpenAI(
     base_url="https://router.huggingface.co/v1",
     api_key=API_KEY,
